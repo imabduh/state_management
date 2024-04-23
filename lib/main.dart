@@ -52,14 +52,36 @@ class MyHomePage extends StatelessWidget {
         title: const Text("Counter - Mabduh"),
       ),
       body: Center(
-          child: Text(Provider.of<Counter>(context)._counter.toString())),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          counterProv.incrementCounter(); // untuk menambah + 1
-          // counterProv.decrementCounter(); // untuk mengurang - 1
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+          child: Text(
+        Provider.of<Counter>(context)._counter.toString(),
+        style: const TextStyle(fontSize: 100),
+      )),
+      floatingActionButton: Stack(
+        children: [
+          Positioned(
+            bottom: 16.0,
+            right: 16.0,
+            child: FloatingActionButton(
+              onPressed: () {
+                counterProv.decrementCounter();
+              },
+              tooltip: 'Decrement',
+              backgroundColor: Colors.red,
+              child: const Icon(Icons.remove),
+            ),
+          ),
+          Positioned(
+            bottom: 16.0,
+            right: 80.0,
+            child: FloatingActionButton(
+              onPressed: () {
+                counterProv.incrementCounter();
+              },
+              tooltip: 'Increment',
+              child: const Icon(Icons.add),
+            ),
+          ),
+        ],
       ),
     );
   }
