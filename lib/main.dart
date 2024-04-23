@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Muhammad Abduh',
+      debugShowCheckedModeBanner: false,
+      title: 'State Management Counter - Muhammad Abduh',
       theme: ThemeData.dark(),
       home: const MyHomePage(),
     );
@@ -48,7 +49,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Muhammad Abduh"),
+        title: const Text("Counter - Mabduh"),
       ),
       body: Center(
           child: Text(Provider.of<Counter>(context)._counter.toString())),
